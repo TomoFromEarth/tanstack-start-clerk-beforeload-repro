@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-start-clerk-beforeload-repro",
+  "name": "tanstack-start-beforeload-serverfn-repro",
   "private": true,
   "type": "module",
   "imports": {
@@ -16,8 +16,6 @@
     "check": "prettier --check ."
   },
   "dependencies": {
-    "@clerk/clerk-react": "5.61.8",
-    "@clerk/tanstack-react-start": "0.29.13",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-router": "1.170.16",

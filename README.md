@@ -1,4 +1,4 @@
-# TanStack Start Clerk beforeLoad server function repro
+# TanStack Start beforeLoad server function repro
 
 Minimal reproduction for a local dev-only issue where a TanStack Start
 `createServerFn` called from root route `beforeLoad` can resolve to `undefined`
@@ -9,24 +9,12 @@ a serialized result.
 
 ```sh
 pnpm install
-cp .env.example .env.local
-```
-
-Fill in `.env.local` with a Clerk development app:
-
-```sh
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
-CLERK_SECRET_KEY=sk_test_...
-```
-
-Then run:
-
-```sh
 pnpm dev
 ```
 
-Open `http://localhost:3000`, sign in with Clerk, then click between `Home` and
-`Repro`.
+Open `http://localhost:3000`, then click between `Home` and `Repro`.
+
+No external services or environment variables are required.
 
 ## Expected
 
@@ -62,11 +50,21 @@ server function URL and logs:
 Confirmed local repro output:
 
 ```txt
+[serverFn beforeLoad repro] {
+  environment: 'server',
+  auth: { userId: 'user_mock_repro', token: 'token_mock_repro' },
+  url: '/_serverFn/...'
+}
+[serverFn beforeLoad repro] {
+  environment: 'browser',
+  auth: 'undefined',
+  url: '/_serverFn/...'
+}
 [serverFn beforeLoad repro] raw serverFn fetch {
   status: 200,
   ok: true,
   serialized: 'true',
-  bodyLength: 1300,
+  bodyLength: 237,
   hasSerializedResult: true,
   hasUserId: true,
   hasToken: true

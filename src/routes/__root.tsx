@@ -7,8 +7,8 @@ import {
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
 import appCss from '../styles.css?url'
-import HeaderUser from '../integrations/clerk/header-user'
-import AppClerkProvider from '../integrations/clerk/provider'
+import HeaderUser from '../integrations/mock-auth/header-user'
+import AppAuthProvider from '../integrations/mock-auth/provider'
 import { fetchAuth } from '../lib/fetchAuth'
 
 export const Route = createRootRoute({
@@ -107,7 +107,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <AppClerkProvider>
+        <AppAuthProvider>
           <div className="p-2 flex gap-4 text-lg items-center">
             <Link
               to="/"
@@ -132,7 +132,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
           <TanStackRouterDevtools position="bottom-right" />
           <Scripts />
-        </AppClerkProvider>
+        </AppAuthProvider>
       </body>
     </html>
   )
