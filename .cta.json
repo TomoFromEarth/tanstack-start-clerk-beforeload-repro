@@ -1,0 +1,22 @@
+{
+  "projectName": "clerk-tanstack-react-start",
+  "mode": "file-router",
+  "typescript": true,
+  "packageManager": "pnpm",
+  "includeExamples": false,
+  "tailwind": true,
+  "addOnOptions": {},
+  "envVarValues": {
+    "VITE_CLERK_PUBLISHABLE_KEY": "CLERK_PUBLISHABLE_KEY=pk_test_d2VsY29tZWQtbW9ua2V5LTY4LmNsZXJrLmFjY291bnRzLmRldiQ"
+  },
+  "git": false,
+  "install": true,
+  "routerOnly": false,
+  "version": 1,
+  "framework": "react",
+  "chosenAddOns": [
+    "eslint",
+    "nitro",
+    "clerk"
+  ]
+}
