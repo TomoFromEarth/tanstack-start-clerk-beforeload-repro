@@ -58,3 +58,21 @@ server function URL and logs:
 ```txt
 [serverFn beforeLoad repro] raw serverFn fetch
 ```
+
+Confirmed local repro output:
+
+```txt
+[serverFn beforeLoad repro] raw serverFn fetch {
+  status: 200,
+  ok: true,
+  serialized: 'true',
+  bodyLength: 1300,
+  hasSerializedResult: true,
+  hasUserId: true,
+  hasToken: true
+}
+```
+
+That raw fetch log only runs after `await fetchAuth()` returned `undefined`.
+The direct server function endpoint returns a serialized result, but the
+client-side server function wrapper returned no value.

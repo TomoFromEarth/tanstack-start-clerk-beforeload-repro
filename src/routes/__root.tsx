@@ -93,7 +93,10 @@ async function logRawServerFnFetch() {
     status: response.status,
     ok: response.ok,
     serialized: response.headers.get('x-tss-serialized'),
-    body,
+    bodyLength: body.length,
+    hasSerializedResult: body.includes('"result"'),
+    hasUserId: body.includes('"userId"'),
+    hasToken: body.includes('"token"'),
   })
 }
 
