@@ -11,6 +11,11 @@ import HeaderUser from '../integrations/mock-auth/header-user'
 import AppAuthProvider from '../integrations/mock-auth/provider'
 import { fetchAuth } from '../lib/fetchAuth'
 
+type AuthResult = {
+  userId: string
+  token: string
+}
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -52,7 +57,7 @@ export const Route = createRootRoute({
     ],
   }),
   beforeLoad: async () => {
-    const auth = await fetchAuth()
+    const auth = (await fetchAuth()) as AuthResult | undefined
 
     console.log('[serverFn beforeLoad repro]', {
       environment: typeof window === 'undefined' ? 'server' : 'browser',
